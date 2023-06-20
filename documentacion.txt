@@ -1,0 +1,20 @@
+Para el cumplimiento de los requisitos que se piden en el proyecto se tienen que:
+Las tablas utilizadas son users,  y Comment, todas protegidas con el decorador Private presente en algunas de sus rutas
+Users:
+    @Get()
+    @Post('/login') @Public()
+    @Post('/singup') @Public()
+    @Get('/me') @Private(Role.ADMIN)
+Post
+    @Get() @Public()
+    @Get(':id') @Public()
+    @Post() @Private(Role.ADMIN)
+    @Put(':id') @Private(Role.ADMIN)
+    @Delete(':id') @Private(Role.ADMIN)
+Comment:
+    @Get() @Private(Role.ADMIN)
+    @Get(':id') @Public()
+    @Post() @Private(Role.ADMIN)
+    @Put(':id') @Private(Role.ADMIN)
+    @Delete(':id') @Private(Role.ADMIN)
+Se utilizo la relacion uno a muchos entre la tabla post(uno) y la tabla comment(muchos)
